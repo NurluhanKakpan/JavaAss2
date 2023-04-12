@@ -60,6 +60,7 @@ public class MyArrayList<T> implements MyList{
 
     @Override// this method shifts all the elements by one and the element to delete is overwritten
     public Object remove(int index) {
+        validIndex(index);
         if(size == 1){ // found a bug when there is only one element
             T temp = arr[0];
             size = 0;
@@ -83,6 +84,7 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public Object get(int index) { // returning element at the specified index
+        validIndex(index);
         return arr[index];
     }
 
@@ -101,10 +103,9 @@ public class MyArrayList<T> implements MyList{
 
     }
 
-    private boolean validIndex(int index){ // to check if the index is valid
+    private void validIndex(int index){ // to check if the index is valid
         if(index >= size || index < 0){
-            return false;
+            throw new IndexOutOfBoundsException();
         }
-        return true;
     }
 }
