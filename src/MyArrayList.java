@@ -57,7 +57,7 @@ public class MyArrayList<T> implements MyList{
     }
 
     @Override
-    public void clear() {
+    public void clear() { // the method to clear entire List
         T[] newArr = (T[]) new Object[arr.length*2];
         arr = newArr;
         size = 0;
