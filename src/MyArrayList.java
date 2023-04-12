@@ -1,7 +1,12 @@
 public class MyArrayList<T> implements MyList{
 
-    int size = 0;
+    private int size = 0; // this variable must be private by security means.
     private T[] arr;
+
+    public MyArrayList(){ // adding constructor
+        this.arr = (T[]) new Object[5];
+        this.size = 0;
+    }
 
 
     @Override// It returns the size of the array

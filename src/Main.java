@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        MyArrayList myList = new MyArrayList();
+
+        System.out.println(myList.size());
+        myList.add(1);
+        System.out.println(myList.size());
     }
 }
