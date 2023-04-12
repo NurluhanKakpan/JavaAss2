@@ -33,7 +33,7 @@ public class MyArrayList<T> implements MyList{
         arr[size++] = (T)item;
     }
 
-    private void increaseBuffer(){
+    private void increaseBuffer(){ // It is a function that increases our array
         T[] newArr = (T[]) new Object[arr.length*2];
         for(int i = 0; i < size; i++){
             newArr[i] = arr[i];
