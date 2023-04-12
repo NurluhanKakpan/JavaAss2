@@ -3,7 +3,8 @@ public class Main {
         MyArrayList myList = new MyArrayList();
 
         System.out.println(myList.size());
-        myList.add(1);
+        myList.add(5);
         System.out.println(myList.size());
+        System.out.println(myList.get(0));
     }
 }
