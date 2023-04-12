@@ -4,7 +4,7 @@ public class MyArrayList<T> implements MyList{
     private T[] arr;
 
 
-    @Override
+    @Override// It returns the size of the array
     public int size() {
         return size;
     }
@@ -22,10 +22,18 @@ public class MyArrayList<T> implements MyList{
 
     @Override // adding new item
     public void add(Object item) {
-        if(arr.length < size){
-
+        if(arr.length == size){
+            increaseBuffer();
         }
-        size++;
+        arr[size++] = (T)item;
+    }
+
+    private void increaseBuffer(){
+        T[] newArr = (T[]) new Object[arr.length*2];
+        for(int i = 0; i < size; i++){
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
     }
 
     @Override
