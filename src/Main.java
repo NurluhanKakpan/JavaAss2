@@ -4,9 +4,9 @@ public class Main {
         myList.add(5);
         myList.add(7);
         myList.add(2);
-        System.out.println(myList.size());
-        myList.clear();
-        System.out.println(myList.size());
+        System.out.println(myList.get(0));
+        myList.remove(0);
+        System.out.println(myList.get(0));
 
     }
 }

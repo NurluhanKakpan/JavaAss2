@@ -48,12 +48,24 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public boolean remove(Object item) {
+        for(int i = 0; i < size; i++){
+            if(arr[i].equals(item)){
+                remove(i);
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 
-    @Override
+    @Override// this method shifts all the elements by one and the element to delete is overwritten
     public Object remove(int index) {
-        return null;
+        T temp = arr[index];
+        for(int i = index; i < size-1; i++){
+            arr[i] = arr[i+1];
+        }
+        size--;
+        return temp;
     }
 
     @Override
