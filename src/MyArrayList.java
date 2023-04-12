@@ -62,8 +62,8 @@ public class MyArrayList<T> implements MyList{
     }
 
     @Override
-    public Object get(int index) {
-        return null;
+    public Object get(int index) { // returning element at the specified index
+        return arr[index];
     }
 
     @Override
