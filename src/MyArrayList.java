@@ -60,6 +60,12 @@ public class MyArrayList<T> implements MyList{
 
     @Override// this method shifts all the elements by one and the element to delete is overwritten
     public Object remove(int index) {
+        if(size == 1){ // found a bug when there is only one element
+            T temp = arr[0];
+            size = 0;
+            clear();
+            return temp;
+        }
         T temp = arr[index];
         for(int i = index; i < size-1; i++){
             arr[i] = arr[i+1];
@@ -70,7 +76,7 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public void clear() { // the method to clear entire List
-        T[] newArr = (T[]) new Object[arr.length*2];
+        T[] newArr = (T[]) new Object[0];
         arr = newArr;
         size = 0;
     }
