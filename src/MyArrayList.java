@@ -100,4 +100,11 @@ public class MyArrayList<T> implements MyList{
     public void sort() {
 
     }
+
+    private boolean validIndex(int index){ // to check if the index is valid
+        if(index >= size || index < 0){
+            return false;
+        }
+        return true;
+    }
 }
