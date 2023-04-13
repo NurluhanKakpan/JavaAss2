@@ -7,7 +7,7 @@ public class Main {
         myLinkedList.add(5);
         myLinkedList.add(6);
         myLinkedList.add(9);
-        myLinkedList.printList();
+        myLinkedList.printInReverse();
 
     }
 }

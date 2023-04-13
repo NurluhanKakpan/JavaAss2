@@ -16,11 +16,12 @@ public class MyLinkedList <E> implements MyList{
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean contains(Object o) {
+        Node currentNode = this.head;
         return false;
     }
 
@@ -30,6 +31,7 @@ public class MyLinkedList <E> implements MyList{
         if(this.head == null){
             this.head = newNode;
             this.tail = newNode;
+            size++;
             return;
         }
         Node currentNode = this.head;
@@ -37,6 +39,9 @@ public class MyLinkedList <E> implements MyList{
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
+        newNode.previous = currentNode; // identifying the precious node
+        this.tail = newNode;
+        size++; // increasing the size
     }
 
     @Override
@@ -86,5 +91,12 @@ public class MyLinkedList <E> implements MyList{
             currentNode = currentNode.next;
         }
         System.out.println();
+    }
+    public void printInReverse(){
+        Node currentNode = this.tail;
+        while(currentNode != null){
+            System.out.println(currentNode.data + " ");
+            currentNode = currentNode.previous;
+        }
     }
 }
