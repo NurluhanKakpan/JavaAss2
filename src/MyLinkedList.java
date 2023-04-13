@@ -78,4 +78,13 @@ public class MyLinkedList <E> implements MyList{
     public void sort() {
 
     }
+
+    public void printList(){ // Printing the Linked list in order
+        Node currentNode = this.head; // the temporary node to access all the nodes
+        while(currentNode != null){ // looping through all the values
+            System.out.print(currentNode.data + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.println();
+    }
 }
