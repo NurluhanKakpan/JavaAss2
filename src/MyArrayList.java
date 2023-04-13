@@ -1,10 +1,15 @@
-public class MyArrayList<T> implements MyList{
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
+public class MyArrayList <T extends Comparable<T>> implements MyList{
 
     private int size = 0; // this variable must be private by security means.
     private T[] arr;
 
-    public MyArrayList(){ // adding constructor
-        this.arr = (T[]) new Object[5];
+    public MyArrayList() {
+        this.arr = (T[]) new Comparable[10];
         this.size = 0;
     }
 
@@ -114,8 +119,16 @@ public class MyArrayList<T> implements MyList{
     }
 
     @Override
-    public void sort() {
-
+    public void sort() { // sorting the generic type
+        for(int i = 0; i < size - 1;i++){
+            for (int j = 0; j < size - i - 1; j++){
+                if (arr[j].compareTo(arr[j+1]) > 0){
+                    T temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
     }
 
     private void validIndex(int index){ // to check if the index is valid
