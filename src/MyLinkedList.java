@@ -1,6 +1,6 @@
-public class MyLinkedList implements MyList{
+public class MyLinkedList <E> implements MyList{
 
-    private int size;
+    private int size = 0;
 
     private class Node<E>{
 
@@ -25,8 +25,18 @@ public class MyLinkedList implements MyList{
     }
 
     @Override
-    public void add(Object item) {
-
+    public void add(Object item) { // adding the element in the end of the linked list
+        Node newNode = new Node<>((E)item);
+        if(this.head == null){
+            this.head = newNode;
+            this.tail = newNode;
+            return;
+        }
+        Node currentNode = this.head;
+        while(currentNode.next != null){
+            currentNode = currentNode.next;
+        }
+        currentNode.next = newNode;
     }
 
     @Override
