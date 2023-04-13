@@ -89,13 +89,28 @@ public class MyArrayList<T> implements MyList{
     }
 
     @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int indexOf(Object o) { // it searches for the first appearance of the object
+        for(int i = 0; i < size; i++){
+            if(arr[i].equals(o)){
+                return i;
+            }
+        }
+        validIndex(-1);
+        return -1;
     }
 
     @Override
-    public int lastIndexOf(Object o) {
-        return 0;
+    public int lastIndexOf(Object o) { // it searches for the last entry of the object in array
+        int desiredIndex = -1;
+        for(int i = 0; i < size; i++){
+            if(arr[i].equals(o)){
+                desiredIndex = i;
+            }
+        }
+        if(desiredIndex == -1){
+            System.out.println("Error, No such element in the array");
+        }
+        return desiredIndex;
     }
 
     @Override
@@ -105,7 +120,13 @@ public class MyArrayList<T> implements MyList{
 
     private void validIndex(int index){ // to check if the index is valid
         if(index >= size || index < 0){
+            System.out.println("Error, No such element in the array");
             throw new IndexOutOfBoundsException();
+        }
+    }
+    public void printList(){ // adding support method to print all the elements in stdout
+        for(int i = 0; i < size; i++){
+            System.out.print(arr[i] +  " ");
         }
     }
 }
