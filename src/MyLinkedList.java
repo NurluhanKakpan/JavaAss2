@@ -10,6 +10,9 @@ public class MyLinkedList <E> implements MyList{
         public Node(E data){
             this.data = data;
         }
+        public Node(){
+
+        }
     }
     private Node head;
     private Node tail;
@@ -19,9 +22,15 @@ public class MyLinkedList <E> implements MyList{
         return size;
     }
 
-    @Override
+    @Override // finding the certain element in the linked list
     public boolean contains(Object o) {
         Node currentNode = this.head;
+        while(currentNode != null){ // the logic of traversing the linked list
+            if(currentNode.data.equals((E)o)){
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
         return false;
     }
 
@@ -45,13 +54,59 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public void add(Object item, int index) {
+    public void add(Object item, int index) { // a method to add the element by index
+        Node currentNode = this.head;
+        Node newNode = new Node<>((E) item);
+        int currentIndex = 0;
+        if(index == 0){
+            Node temp = this.head;
+            this.head = newNode;
+            this.head.next = temp;
+            return;
+        }else if(index >= size){
+            add((E)item);
+            return;
+        }
 
+        while(currentNode != null){
+            if(currentIndex == index){
+                currentNode.previous.next = newNode;
+                newNode.next = currentNode;
+                size++;
+                return;
+            }
+            currentIndex++;
+            currentNode = currentNode.next;
+        }
+
+        System.out.println("Error of adding the element");
     }
 
     @Override
-    public boolean remove(Object item) {
-        return false;
+    public boolean remove(Object item) { // removing the first appearance of the object
+        Node currentNode = this.head;
+        Node previousNode = new Node();
+        if(currentNode != null && currentNode.data.equals((E)item)){
+            this.head = currentNode.next;
+            size--;
+            return true;
+        }
+        while(currentNode != null){
+            if(currentNode.data.equals((E)item)){
+                System.out.println("Starting...");
+                break;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+        }
+        if (currentNode == null){
+            return false;
+        }
+
+        previousNode.next = currentNode.next;
+        size--;
+        return true;
     }
 
     @Override
