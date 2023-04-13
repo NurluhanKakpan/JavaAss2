@@ -115,8 +115,8 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public void clear() {
-
+    public void clear() { // Deleting the linked list
+        this.head = new Node<>();
     }
 
     @Override
