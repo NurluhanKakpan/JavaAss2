@@ -47,8 +47,15 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public void add(Object item, int index) {
-
+    public void add(Object item, int index) { // adding item to a certain index
+        if(arr.length == size-1){
+            increaseBuffer();
+        }
+        for(int i = size - 1; i >= index; i--){
+            arr[i+1] = arr[i];
+        }
+        arr[index] = (T) item;
+        size++;
     }
 
     @Override
