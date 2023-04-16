@@ -125,8 +125,17 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int indexOf(Object o) {// returns the index of the first appearance of the object
+        int index = 0;
+        Node currentNode = this.head;
+        while(currentNode != null) {
+            if(currentNode.data.equals((E) o)){
+                return index;
+            }
+            index++;
+            currentNode = currentNode.next;
+        }
+       return -1;
     }
 
     @Override

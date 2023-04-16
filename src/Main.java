@@ -6,12 +6,10 @@ public class Main {
         MyLinkedList myLinkedList = new MyLinkedList();
 
         myLinkedList.add(4);
-        Integer hisInt = 5;
         myLinkedList.add(5);
         myLinkedList.add(6);
         myLinkedList.add(9);
-        Integer myInt = 6;
-        myLinkedList.remove(myInt);
+        System.out.println(myLinkedList.indexOf(9));
         myLinkedList.printList();
 
     }
