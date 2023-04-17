@@ -91,7 +91,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
             size--;
             return true;
         }
-        while(currentNode != null){
+        while(currentNode != null){//traversing through the List
             if(currentNode.data.equals((E)item)){
                 System.out.println("Starting...");
                 break;
@@ -121,6 +121,8 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         while(currentNode != null){
             if(index == currentIndex){
                 previousNode.next = currentNode.next;
+                size--;
+                return currentNode.data;
             }
             currentIndex++;
             previousNode = currentNode;
@@ -133,6 +135,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     @Override
     public void clear() { // Deleting the linked list
         this.head = new Node<>();
+        this.size = 0; // the size should be zero now since there no elements
     }
 
     @Override
