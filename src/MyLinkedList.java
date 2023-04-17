@@ -120,7 +120,16 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public Object get(int index) {
+    public Object get(int index) {// getting the element by index
+        int currentIndex = 0;
+        Node currentNode = this.head;
+        while(currentNode != null){
+            if(index == currentIndex){
+                return currentNode.data;
+            }
+            currentIndex++;
+            currentNode = currentNode.next;
+        }
         return null;
     }
 

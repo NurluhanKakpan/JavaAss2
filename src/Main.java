@@ -10,7 +10,7 @@ public class Main {
         myLinkedList.add(6);
         myLinkedList.add(9);
         myLinkedList.add(5);
-        System.out.println(myLinkedList.lastIndexOf(5)); // it is working
+        System.out.println(myLinkedList.get(2));
         myLinkedList.printList();
 
     }
