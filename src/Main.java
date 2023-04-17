@@ -9,7 +9,8 @@ public class Main {
         myLinkedList.add(5);
         myLinkedList.add(6);
         myLinkedList.add(9);
-        System.out.println(myLinkedList.indexOf(9));
+        myLinkedList.add(5);
+        System.out.println(myLinkedList.lastIndexOf(5)); // it is working
         myLinkedList.printList();
 
     }

@@ -139,13 +139,23 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public int lastIndexOf(Object o) {
-        return 0;
+    public int lastIndexOf(Object o) { // Returning the last instance of the object in the List
+        int index = 0;
+        int desiredIndex = -1;
+        Node currentNode = this.head;
+        while(currentNode != null) {
+            if(currentNode.data.equals((E) o)){
+                desiredIndex = index;
+            }
+            index++;
+            currentNode = currentNode.next;
+        }
+        return desiredIndex;
     }
 
     @Override
     public void sort() {
-
+        
     }
 
     public void printList(){ // Printing the Linked list in order
