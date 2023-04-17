@@ -110,7 +110,23 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public Object remove(int index) {
+    public Object remove(int index) { // Removing the item by the index
+        int currentIndex = 0;
+        Node currentNode = this.head;
+        Node previousNode = this.head;
+        if(index == 0){
+            this.head = currentNode.next;
+            return currentNode;
+        }
+        while(currentNode != null){
+            if(index == currentIndex){
+                previousNode.next = currentNode.next;
+            }
+            currentIndex++;
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+        }
         return null;
     }
 
