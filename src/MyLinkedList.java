@@ -1,10 +1,10 @@
-public class MyLinkedList <E> implements MyList{
+public class MyLinkedList <E extends Comparable<E>> implements MyList{
 
     private int size = 0;
 
     private class Node<E>{
 
-        E data;
+        private E data;
         Node<E> next;
         Node<E> previous;
         public Node(E data){
@@ -179,8 +179,27 @@ public class MyLinkedList <E> implements MyList{
     }
 
     @Override
-    public void sort() {
-        
+    public void sort() { // sorting the linked list using the bubble sort and changing the data itself
+        int n = 0; // double-checking the size of the array
+        Node currentNode = this.head;
+        while(currentNode != null){
+            n++;
+            currentNode = currentNode.next;
+        }
+
+        for(int i = 0; i < n; i++){
+            currentNode = this.head;
+            while(currentNode.next != null){
+                E data1 = (E)currentNode.data;
+                E data2 = (E)currentNode.next.data;
+
+                if(data1.compareTo(data2) > 0){
+                    currentNode.next.data = data1;
+                    currentNode.data = data2;
+                }
+                currentNode = currentNode.next;
+            }
+        }
     }
 
     public void printList(){ // Printing the Linked list in order
