@@ -38,8 +38,9 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
         arr[size++] = (T)item;
     }
 
-    private void increaseBuffer(){ // It is a function that increases our array
-        T[] newArr = (T[]) new Object[arr.length*2];
+
+    private void increaseBuffer( ){ // It is a function that increases our array
+        T[] newArr = (T[]) new Object[arr.length];
         for(int i = 0; i < size; i++){
             newArr[i] = arr[i];
         }
@@ -123,6 +124,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
             System.out.println("Error, No such element in the array");
         }
         return desiredIndex;
+
     }
 
     @Override
@@ -135,6 +137,12 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
                     arr[j+1] = temp;
                 }
             }
+        }
+    }
+
+    public void addAll(Object[] array) {
+        for(int i = 0; i< array.length; i++){
+            add(array[i]);
         }
     }
 

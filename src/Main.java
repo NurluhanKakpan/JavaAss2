@@ -1,19 +1,11 @@
 import org.w3c.dom.Node;
 
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
-
-        MyLinkedList myLinkedList = new MyLinkedList();
-
-        myLinkedList.add(10);
-        myLinkedList.add(5);
-        myLinkedList.add(9);
-        myLinkedList.add(4);
-        myLinkedList.add(6);
-        myLinkedList.add(1);
-        myLinkedList.sort();
-        System.out.println();
-        myLinkedList.printList();
-
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        Integer[] integers = new Integer[]{1,2,3,4,5};
+        myArrayList.addAll(integers);
     }
 }

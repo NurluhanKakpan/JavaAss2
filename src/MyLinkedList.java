@@ -36,7 +36,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
 
     @Override
     public void add(Object item) { // adding the element in the end of the linked list
-        Node newNode = new Node<>((E)item);
+        Node newNode = new Node((E)item);
         if(this.head == null){
             this.head = newNode;
             this.tail = newNode;
@@ -205,6 +205,12 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         }
     }
 
+    public void addAll(MyArrayList[] array) {
+        for(int i = 0; i< array.length; i++  ){
+            add(array[i]);
+        }
+    }
+
     public void printList(){ // Printing the Linked list in order
         Node currentNode = this.head; // the temporary node to access all the nodes
         while(currentNode != null){ // looping through all the values
@@ -221,3 +227,5 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         }
     }
 }
+
+

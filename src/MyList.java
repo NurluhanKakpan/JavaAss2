@@ -1,5 +1,3 @@
-import java.util.List;
-
 public interface MyList <T>{
     int size();
     boolean contains(Object o);
@@ -12,4 +10,6 @@ public interface MyList <T>{
     int indexOf(Object o);
     int lastIndexOf(Object o);
     void sort();
+
+
 }
